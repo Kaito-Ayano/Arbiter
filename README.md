@@ -2,7 +2,7 @@
 
 **Deloitte Digital Camp 2026 · Team G · Data governance, explainability and quality control for AI-assisted financial analysis**
 
-> **Live demo (GitHub Pages):** <https://kaito-ayano.github.io/arbiter/>
+> **Live demo (GitHub Pages):** <https://kaito-ayano.github.io/Arbiter/>
 > 双击 `index.html` 亦可在本地运行（图表需联网加载 ECharts CDN）。
 
 ## What it is

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GovLens · X-Bank AI 治理诊断工作台（Team G 方案演示）</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="brand">
+    <h1>GovLens</h1>
+    <span class="tag">X-Bank AI 治理诊断工作台 ｜ Deloitte Digital Camp 2026 · Team G ｜ 数据治理 · 结果可解释性 · 质量控制</span>
+  </div>
+  <nav id="nav">
+    <button data-page="profile" class="active">风险画像</button>
+    <button data-page="radar">成熟度自评雷达</button>
+    <button data-page="framework">治理框架图</button>
+    <button data-page="adjudication">人工裁决通道</button>
+    <button data-page="gantt">三阶段甘特</button>
+  </nav>
+</header>
+<main>
+  <!-- ============ 页签 1：风险画像 ============ -->
+  <section id="page-profile" class="page active">
+    <div class="kpi-grid">
+      <div class="kpi"><div class="label">治理风险项</div><div class="value" id="kpi-risks">-</div><div class="sub" id="kpi-risks-sub">高 / 中 / 低</div></div>
+      <div class="kpi"><div class="label">监管映射覆盖</div><div class="value green" id="kpi-reg">-</div><div class="sub">SR 11-7 · BCBS 239 · EU AI Act 等</div></div>
+      <div class="kpi"><div class="label">平均成熟度</div><div class="value" id="kpi-mat">-</div><div class="sub">六维自评（1–5 级）</div></div>
+      <div class="kpi"><div class="label">治理路线</div><div class="value" id="kpi-plan">-</div><div class="sub">3 阶段 · 10 任务 · 3 里程碑</div></div>
+    </div>
+    <div class="chips">
+      <span class="chip">诊断对象：信贷审批与财报分析 AI</span>
+      <span class="chip">方法：三支柱框架（数据 / 解释 / 质量）</span>
+      <span class="chip">点击卡片展开证据与监管映射</span>
+    </div>
+    <div class="risk-cols" id="risk-cols"></div>
+    <div class="card">
+      <h3>演示导览<span class="en">60-second narrative</span></h3>
+      <p style="margin:0;line-height:1.9;color:#6b7a8c">
+        治理办公室的三步工作法：<b>第一步</b>，风险画像——12 项治理风险按三支柱展开，每项带证据与监管映射（本页）；
+        <b>第二步</b>，成熟度雷达——六维自评对比监管底线与战略目标，缺口最大的维度直接指向整改任务（页签 2）；
+        <b>第三步</b>，人工裁决——AI 的财报结论逐条留痕裁决，防自动化偏见（页签 4），最终以 90 天路线制度化（页签 5）。
+        框架树（页签 3）把三支柱机制与风险、任务一一对应，形成完整证据链。
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ 页签 2：成熟度自评雷达 ============ -->
+  <section id="page-radar" class="page">
+    <div class="two-col">
+      <div class="card" style="margin-top:0">
+        <h3>成熟度雷达<span class="en">current vs floor vs goal</span></h3>
+        <div id="radarChart"></div>
+      </div>
+      <div>
+        <div class="card" style="margin-top:0">
+          <h3>自评调节<span class="en">drag sliders (1–5)</span></h3>
+          <div id="mat-sliders"></div>
+          <button class="btn" id="btn-reset-mat">恢复诊断底稿</button>
+        </div>
+        <div class="card">
+          <h3>缺口分析与优先建议<span class="en">gap analysis</span></h3>
+          <div id="gap-list"></div>
+          <div id="gap-advice"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 页签 3：治理框架图 ============ -->
+  <section id="page-framework" class="page">
+    <div class="two-col">
+      <div class="card" style="margin-top:0">
+        <h3>治理框架树<span class="en">3 pillars × 12 mechanisms</span></h3>
+        <div id="treeChart"></div>
+      </div>
+      <div class="card" style="margin-top:0">
+        <h3>机制详情<span class="en">click a leaf node</span></h3>
+        <div id="tree-side"><div style="color:#6b7a8c;font-size:12px">点击叶子节点：显示对应风险项、现状成熟度与整改任务。</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 页签 4：人工裁决通道 ============ -->
+  <section id="page-adjudication" class="page">
+    <div class="card" style="margin-top:0">
+      <div class="r-toolbar">
+        <span class="r-title">人工裁决通道<span class="en" style="margin-left:8px">human-in-the-loop adjudication</span></span>
+        <label class="g-toggle">裁决人
+          <input type="text" id="v-operator" size="10" placeholder="risk-manager">
+        </label>
+        <button class="btn" id="btn-export-v">导出裁决记录 CSV</button>
+        <button class="btn ghost" id="btn-clear-v">清空记录</button>
+      </div>
+      <p class="r-note">AI 逐条给出财报分析结论与依据链 → 人工裁决：采纳 / 驳回 / 需补充证据；裁决留痕本地保存，导出 CSV 即合规证据链。注意：高置信 ≠ 高质量，请警惕自动化偏见。</p>
+      <div class="chips" id="v-filters">
+        <button class="chip btn-f active" data-f="all">全部 <b id="vc-all">-</b></button>
+        <button class="chip btn-f" data-f="pending">待裁决 <b id="vc-pending">-</b></button>
+        <button class="chip btn-f" data-f="adopted">已采纳 <b id="vc-adopted">-</b></button>
+        <button class="chip btn-f" data-f="rejected">已驳回 <b id="vc-rejected">-</b></button>
+        <button class="chip btn-f" data-f="evidence">需补充证据 <b id="vc-evidence">-</b></button>
+      </div>
+    </div>
+    <div class="card">
+      <div style="overflow-x:auto">
+        <table class="review">
+          <thead><tr><th>编号</th><th>AI 结论</th><th>置信度</th><th>依据链</th><th>AI 建议</th><th>裁决</th><th>裁决人</th><th>备注</th><th>裁决时间</th></tr></thead>
+          <tbody id="verdict-body"></tbody>
+        </table>
+      </div>
+      <p style="font-size:12px;color:#6b7a8c;margin-bottom:0">
+        演示提示：C4 置信度 0.93 全场最高，但依据链只有一张现金流量表——建议判“需补充证据”，备注“缺季度分解与一次性损益剔除”，即完成“防自动化偏见”闭环演示。
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ 页签 5：三阶段甘特 ============ -->
+  <section id="page-gantt" class="page">
+    <div class="card" style="margin-top:0">
+      <div class="g-toolbar">
+        <span class="g-title">90 天治理路线<span class="en" style="margin-left:8px">diagnose → pilot → institutionalise</span></span>
+        <span class="g-hint" id="gantt-hint"></span>
+      </div>
+      <div id="ganttChart"></div>
+    </div>
+    <div class="phase-cards" id="phase-cards"></div>
+  </section>
+</main>
+<footer>
+  合成演示数据，非真实数据 ｜ 仅用于 Deloitte Digital Camp Team G 方案演示 ｜ <span class="warn">GovLens</span>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

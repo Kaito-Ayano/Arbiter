@@ -1,8 +1,8 @@
-# GovLens — X-Bank AI governance diagnostic workbench
+# Arbiter — X-Bank AI governance diagnostic workbench
 
 **Deloitte Digital Camp 2026 · Team G · Data governance, explainability and quality control for AI-assisted financial analysis**
 
-> **Live demo (GitHub Pages):** <https://kaito-ayano.github.io/xbank-gov-diagnostic/>
+> **Live demo (GitHub Pages):** <https://kaito-ayano.github.io/arbiter/>
 > 双击 `index.html` 亦可在本地运行（图表需联网加载 ECharts CDN）。
 
 ## What it is
@@ -53,8 +53,8 @@ MIT © 2026 Liu Jixian — see [LICENSE](LICENSE).
 
 ## 中文摘要
 
-**GovLens** 是德勤数字化精英挑战赛 Team G 赛道（初赛方案《AI辅助财务分析中的数据治理、结果可解释性与质量控制研究》的落地演示）：面向虚构银行 X-Bank 的信贷审批与财报分析 AI，提供风险画像（12 项治理风险+监管映射）、成熟度自评雷达（6 维滑杆联动缺口分析）、治理框架树（3 支柱×12 机制）、人工裁决通道（8 条 AI 结论逐条留痕，可导出 CSV）与 90 天三阶段甘特。全部数据为脚本化合成，无任何真实数据。
+**Arbiter** 是德勤数字化精英挑战赛 Team G 赛道（初赛方案《AI辅助财务分析中的数据治理、结果可解释性与质量控制研究》的落地演示）：面向虚构银行 X-Bank 的信贷审批与财报分析 AI，提供风险画像（12 项治理风险+监管映射）、成熟度自评雷达（6 维滑杆联动缺口分析）、治理框架树（3 支柱×12 机制）、人工裁决通道（8 条 AI 结论逐条留痕，可导出 CSV）与 90 天三阶段甘特。全部数据为脚本化合成，无任何真实数据。
 
 ## Русский (кратко)
 
-**GovLens** — интерактивный стенд корпоративного ИИ-управления (Deloitte Digital Camp 2026, трек G): диагностика рисков, радиус зрелости, дерево механизмов, канал человеческих вердиктов с аудиторским следом и 90-дневный план внедрения. Все данные синтетические.
+**Arbiter** — интерактивный стенд корпоративного ИИ-управления (Deloitte Digital Camp 2026, трек G): диагностика рисков, радиус зрелости, дерево механизмов, канал человеческих вердиктов с аудиторским следом и 90-дневный план внедрения. Все данные синтетические.

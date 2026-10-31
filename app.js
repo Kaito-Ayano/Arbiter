@@ -1,4 +1,4 @@
-/* app.js — GovLens 五页签交互：风险画像 / 雷达自评 / 框架树 / 人工裁决 / 甘特 */
+/* app.js — Arbiter 五页签交互：风险画像 / 雷达自评 / 框架树 / 人工裁决 / 甘特 */
 (function () {
   "use strict";
   const $ = s => document.querySelector(s);
@@ -137,7 +137,7 @@
   }
 
   /* ================= 页签 4：人工裁决通道 ================= */
-  const V_KEY = "govlens_verdicts_v1", OP_KEY = "govlens_operator_v1";
+  const V_KEY = "arbiter_verdicts_v1", OP_KEY = "arbiter_operator_v1";
   function loadVerdicts() {
     try { return JSON.parse(localStorage.getItem(V_KEY) || "{}"); } catch (e) { return {}; }
   }

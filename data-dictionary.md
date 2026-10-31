@@ -1,4 +1,4 @@
-# Data dictionary / 数据字典 — GovLens synthetic scenario v1.0
+# Data dictionary / 数据字典 — Arbiter synthetic scenario v1.0
 
 > Synthetic demonstration scenario · 合成演示场景 · **no real data / 不含真实数据** · embedded in [`data.js`](data.js) · machine-readable pack in [`data/`](data/)
 

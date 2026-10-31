@@ -1,4 +1,4 @@
-/* data.js — GovLens 合成演示数据（非真实数据）
+/* data.js — Arbiter 合成演示数据（非真实数据）
  * 评分底稿、风险登记册、AI 结论样例、甘特计划均为脚本化合成，用于 Deloitte Digital Camp 2026 Team G 方案演示。
  */
 (function () {

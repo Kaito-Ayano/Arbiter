@@ -31,7 +31,7 @@ An interactive governance diagnostic for a fictional commercial bank (**X-Bank**
 
 ## Data & ethics
 
-All figures are **synthetic** and bundled in [`data.js`](data.js) (no external calls, no real bank data, no personal data). The risk register, maturity scores, sample conclusions and the 90-day plan are scripted scenarios for demonstration; every page carries the footer “合成演示数据，非真实数据”. Regulatory mappings cite public frameworks (SR 11-7, BCBS 239, EU AI Act) as *reference anchors only*, not legal advice.
+All figures are **synthetic** and bundled in [`data.js`](data.js) (no external calls, no real bank data, no personal data). A machine-readable dataset pack lives in [`data/`](data/) — five CSV files (risk register, maturity baseline, AI conclusions, remediation plan, milestones) generated from the same constants, UTF-8 with BOM. The risk register, maturity scores, sample conclusions and the 90-day plan are scripted scenarios for demonstration; every page carries the footer “合成演示数据，非真实数据”. Regulatory mappings cite public frameworks (SR 11-7, BCBS 239, EU AI Act) as *reference anchors only*, not legal advice.
 
 ## Run locally
 

@@ -1,6 +1,18 @@
 # Data dictionary / 数据字典 — GovLens synthetic scenario v1.0
 
-> Synthetic demonstration scenario · 合成演示场景 · **no real data / 不含真实数据** · all data embedded in `data.js`
+> Synthetic demonstration scenario · 合成演示场景 · **no real data / 不含真实数据** · embedded in [`data.js`](data.js) · machine-readable pack in [`data/`](data/)
+
+## Machine-readable CSV pack 机读数据包（`data/`）
+
+| File | Rows | Content |
+|---|---|---|
+| `risk_register.csv` | 12 | 风险登记册：id/支柱/名称/等级/证据/监管映射 |
+| `maturity_baseline.csv` | 6 | 成熟度底稿：维度/当前/底线/目标/联动任务 |
+| `ai_conclusions.csv` | 8 | AI 财报结论样例：含 C4 依据链缺陷标注 |
+| `remediation_plan.csv` | 10 | 整改计划：阶段/任务/起止天 |
+| `milestones.csv` | 3 | 里程碑：M1 D30 / M2 D60 / M3 D90 |
+
+All CSV files are UTF-8 with BOM (Excel-friendly) and are generated from the same constants as `data.js` — the demo pages read `data.js`, analysts read `data/`. / 演示页面读取 `data.js`，分析人员读取 `data/`，两者同源。
 
 ## Risk register 风险登记册（12 items）
 
